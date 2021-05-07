@@ -11,6 +11,7 @@ const connectBoard = () => {
       cells.push(<GridCell x={x} y={y} />);
     }
   }
+
   return (
     <div className="App">
       <header className="app-header"></header>

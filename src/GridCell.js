@@ -3,9 +3,9 @@ import "./connect.css";
 import { useState, useEffect } from "react";
 import Game from "./connect";
 
-const gridCell = ({ gridCell }) => {
+const gridCell = ({ x, y }) => {
   const handleClick = () => {
-    console.log(`Clicked on cloumn ${gridCell.x}`);
+    console.log(`Clicked on column ${gridCell.x}`);
   };
   return (
     <div onClick={() => handleClick()}>
