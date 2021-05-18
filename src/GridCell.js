@@ -1,5 +1,6 @@
 import React from "react";
-import "./connect.css";
+import "./App.css";
+import store from "./store";
 import { useState, useEffect } from "react";
 import Game from "./connect";
 
@@ -8,9 +9,9 @@ const gridCell = ({ x, y }) => {
     console.log(`Clicked on column ${gridCell.x}`);
   };
   return (
-    <div onClick={() => handleClick()}>
+    <div className="cell" onClick={() => handleClick()}>
       <p>
-        {gridCell.x},{gridCell.y}
+        {x},{y}
       </p>
     </div>
   );
