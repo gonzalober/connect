@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
-import store from "./store";
-import { useState, useEffect } from "react";
-import Game from "./connect";
+import { connect } from "react-redux";
 
-const gridCell = ({ x, y }) => {
+import { useState, useEffect } from "react";
+import dropTile from "./actions";
+
+const gridCell = ({ x, y, sendTileDrop }) => {
   const handleClick = () => {
-    console.log(`Clicked on column ${gridCell.x}`);
+    console.log(`Clicked on column ${x}`);
+    sendTileDrop(x);
   };
   return (
     <div className="cell" onClick={() => handleClick()}>
@@ -17,4 +19,12 @@ const gridCell = ({ x, y }) => {
   );
 };
 
-export default gridCell;
+const stateToProps = (state) => {
+  return {};
+};
+const dispatchToProps = (dispatch) => {
+  return {
+    sendTileDrop: (col) => dispatch(dropTile(col)),
+  };
+};
+export default connect(stateToProps, dispatchToProps)(gridCell);
