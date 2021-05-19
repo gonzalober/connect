@@ -11,11 +11,11 @@ const reducer = (state, action) => {
     const tile = state.current;
     const col = state.board[action.payload].concat(tile); //my new column
 
-    const board = state.board.slice();
-    board[action.payload] = col; //update column with new tile
+    const newBoard = state.board.slice(); //copy of the board
+    newBoard[action.payload] = col; //update column with new tile
     return {
       current: state.current === "red" ? "black" : "red",
-      board: board,
+      board: newBoard,
     };
   }
   return state;

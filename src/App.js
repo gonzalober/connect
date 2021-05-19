@@ -10,6 +10,7 @@ const connectBoard = () => {
     const row = [];
     for (let x = 0; x < 7; x++) {
       row.push(<GridCell key={x} x={x} y={y} />);
+      console.log("ROW", row);
     }
     cells.push(
       <div key={y} className="row">
